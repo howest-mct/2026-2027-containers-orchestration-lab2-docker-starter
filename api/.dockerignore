@@ -1,12 +1,26 @@
-.env
-.env.*
-.vscode
-.idea
-*.egg-info
-.mypy-cache
-.cache
+# Version control and editors
 .git
 .gitignore
+.vscode
+.idea
+
+# Secrets: pass them at runtime, never bake them into the image
+.env
+.env.*
+
+# Python caches and local virtual environments
+__pycache__
+*.pyc
+*.egg-info
+.mypy_cache
+.pytest_cache
+.cache
+.venv
+venv
+
+# Files that are not needed inside the image
+compose.yaml
+compose.*.yaml
 docker-compose.*
 Dockerfile
 *.md
