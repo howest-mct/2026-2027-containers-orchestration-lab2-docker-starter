@@ -9,6 +9,9 @@ login_manager = LoginManager()
 
 def register_blueprints(app):
     for module_name in glob("webapp/blueprints/*/"):
+        # Skip folders that are not blueprints, such as __pycache__ after a restart
+        if "__pycache__" in module_name:
+            continue
         module = import_module(module_name.replace('/', '.') + 'routes')
         app.register_blueprint(module.blueprint)
 
